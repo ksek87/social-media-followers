@@ -26,7 +26,7 @@ def parse_following(following_json):
     return usernames_following
 
 def compare_lists(followers_li, following_li):
-    diff = list(np.setdiff1d(following_li, followers_li).tolist())
+    diff = np.setdiff1d(following_li, followers_li).tolist()
     return diff
 
 
