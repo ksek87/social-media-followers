@@ -48,7 +48,7 @@ def compare_lists(followers_li, following_li):
     difference = np.setdiff1d(following_li, followers_li).tolist()
     return difference
 
-if __name__ == "__main__":
+
 followers = json.load(open('data/followers.json'))
 following = json.load(open('data/following.json'))
 
