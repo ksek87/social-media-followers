@@ -21,6 +21,7 @@ def parse_followers(followers_json):
 
     return usernames_followers
 
+
 def parse_following(following_json):
     """
     method to parse json from following list into a list of usernames
