@@ -1,11 +1,9 @@
-"""
-File: social-media-followers/main.py
-Program Description:
-    This script will provide a user with the list accounts that do not follow them back on social media. This can be
-    used to track who's unfollowing you, or to help you clear out your social media feed.
-Author: @Keelin Sekerka
-"""
-
+""" File: social-media-followers/main.py
+    Program Description:
+    This script will provide a user with the list accounts that do not follow them back on social
+    media. This can be used to track who's unfollowing you, or to help you clear out your
+    social media feed.
+    Author: @Keelin Sekerka """
 import json
 import numpy as np
 
@@ -23,7 +21,6 @@ def parse_followers(followers_json):
 
     return usernames_followers
 
-
 def parse_following(following_json):
     """
     method to parse json from following list into a list of usernames
@@ -40,7 +37,8 @@ def parse_following(following_json):
 
 def compare_lists(followers_li, following_li):
     """
-    method to compare list of followers to following list, returning a list of users that do not follow back
+    method to compare list of followers to following list, returning a list of users that do not
+    follow back.
     :param followers_li:
     :param following_li:
     :return: difference
@@ -49,11 +47,13 @@ def compare_lists(followers_li, following_li):
     return difference
 
 
-followers = json.load(open('data/followers.json'))
-following = json.load(open('data/following.json'))
+with open('data/followers.json', encoding='utf-8') as fws:
+    followers = json.load(fws)
+    followers_list = parse_followers(followers)
 
-followers_list = parse_followers(followers)
-following_list = parse_following(following)
+with open('data/following.json', encoding='utf-8') as fls:
+    following = json.load(fls)
+    following_list = parse_following(following)
 
 diff = compare_lists(followers_list, following_list)
 
